@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 
 //Route::resource('/post','Controllers\PostController')
+Route::get('/post/contact',[PostController::class,'contact']);
 Route::resource('/post', PostController::class);

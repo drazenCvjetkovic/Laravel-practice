@@ -82,4 +82,9 @@ class PostController extends Controller
     {
         //
     }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }
