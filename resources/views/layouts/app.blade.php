@@ -7,10 +7,15 @@
 </head>
 <body class="antialiased">
 <div class="container">
+    @yield('header')
+    <h2>Header</h2>
+
     @yield('content')
-    <h3>From yield 1</h3>
+    <div style="background-color:darkred">
+
+    </div>
 </div>
- @yield('footer')
+@yield('footer')
 
 </body>
 </html>
