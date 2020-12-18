@@ -5,6 +5,15 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Post;
 
+/*
+|--------------------------------------------------------------------------
+| CRUD practice
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::get('/posts',[PostController::class,'index']);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,44 +59,44 @@ use App\Models\Post;
 |
 */
 
-Route::get('/read',function(){
-   $posts = Post::all();
-    foreach ($posts as $post) {
-        var_dump($post->title);
-    }
-
-});
-
-Route::get('/findwhere',function(){
-
-   // Item::whereRaw('lower(language) like (?)',["%{$term}%"])->get();
-    $post = Post::whereRaw('lower(title) like (?)',["%aravel%"])->first();
-    //var_dump($post);
-    return $post->content;
-});
-
-
-Route::get('/basicinsert',function(){
-
-    $post = new Post();
-    $post->title = 'New eloquent title';
-    $post->content = 'New eloquent content';
-    $post->is_admin = false;
-    $res = $post->save();
-    if($res){
-        return "success";
-    }
-   return  "fail while saving";
-
-});
-
-Route::get('/create',function(){
-
-    Post::create([
-        'title' => 'the create method',
-        'content' => 'the create method content',
-    ]);
-});
+//Route::get('/read',function(){
+//   $posts = Post::all();
+//    foreach ($posts as $post) {
+//        var_dump($post->title);
+//    }
+//
+//});
+//
+//Route::get('/findwhere',function(){
+//
+//   // Item::whereRaw('lower(language) like (?)',["%{$term}%"])->get();
+//    $post = Post::whereRaw('lower(title) like (?)',["%aravel%"])->first();
+//    //var_dump($post);
+//    return $post->content;
+//});
+//
+//
+//Route::get('/basicinsert',function(){
+//
+//    $post = new Post();
+//    $post->title = 'New eloquent title';
+//    $post->content = 'New eloquent content';
+//    $post->is_admin = false;
+//    $res = $post->save();
+//    if($res){
+//        return "success";
+//    }
+//   return  "fail while saving";
+//
+//});
+//
+//Route::get('/create',function(){
+//
+//    Post::create([
+//        'title' => 'the create method',
+//        'content' => 'the create method content',
+//    ]);
+//});
 
 /*
 |--------------------------------------------------------------------------
